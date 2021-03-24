@@ -33,6 +33,7 @@ class App extends Component {
     axios.get('https://joes-autos.herokuapp.com/api/vehicles')
     .then( (response) => {
       this.setState({ vehiclesToDisplay: response.data })
+      console.log(response);
     })
     .catch( (e) => console.log(e) );
     // setState with response -> vehiclesToDisplay
@@ -46,6 +47,10 @@ class App extends Component {
 
   sellCar(id) {
     // axios (DELETE)
+    axios.delete('https://joes-autos.herokuapp.com/api/vehicles/', {id})
+    .then( (response) => {
+      console.log(response);
+    } )
     // setState with response -> vehiclesToDisplay
   }
 
